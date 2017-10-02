@@ -12,7 +12,6 @@ RUN set -x \
     libc-dev \
     linux-headers \
     make \
-    openssl \
     openssl-dev \
     pcre-dev \
     readline-dev \
@@ -51,10 +50,11 @@ RUN set -x \
 RUN apk add --no-cache --update \
     supervisor \
     dcron \
-    libnl \
+    libnl3-cli \
     net-tools \
-    iptables \
+    iproute2 \
     certbot \
+    openssl \
   && rm -rf /var/cache/apk/*
 
 # Setup Supervisor
