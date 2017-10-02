@@ -78,7 +78,7 @@ COPY start.sh /start.sh
 RUN chmod +x /start.sh
 
 EXPOSE 80 443
-VOLUME ["/config/haproxy.cfg", "/etc/letsencrypt/", "/usr/local/etc/haproxy/certs.d/"]
+VOLUME ["/config/", "/etc/letsencrypt/", "/usr/local/etc/haproxy/certs.d/"]
 
 # Start
 CMD ["/start.sh"]
