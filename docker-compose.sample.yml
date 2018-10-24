@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  proxy:
+    build: ./
+    volumes:
+    - ./haproxy.sample.cfg:/config/haproxy.cfg
+    - ./data/letsencrypt:/etc/letsencrypt
+    - ./data/certs.d:/usr/local/etc/haproxy/certs.d
+    - ./data/logs:/var/log/supervisord
+    ports:
+    - "80:80"
+    - "443:443"
+    cap_add:
+    - NET_ADMIN

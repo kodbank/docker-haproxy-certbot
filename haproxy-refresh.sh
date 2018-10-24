@@ -4,6 +4,7 @@ HA_PROXY_DIR=/usr/local/etc/haproxy
 LE_DIR=/etc/letsencrypt/live
 DOMAINS=$(ls ${LE_DIR})
 
+echo "copying new certs"
 # update certs for HA Proxy
 for DOMAIN in ${DOMAINS}
 do
