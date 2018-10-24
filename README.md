@@ -29,7 +29,7 @@ docker run -d \
 
 ### 2. Check config is valid
 ```
-docker exec -it container_name haproxy-check
+docker exec -it haproxy-certbot haproxy-check
 ```
 or
 ```
@@ -40,7 +40,7 @@ docker run -it --rm \
   --net=internal --name haproxy_check haproxy:alpine -c -f /haproxy.cfg
 ```
 
-### 3. Connect docker networks
+### 3. Connect proxy to docker networks (to access other containers)
 ```
 docker network connect my_custom_network haproxy-certbot
 ```
@@ -56,7 +56,7 @@ docker exec haproxy-certbot certbot-certonly \
 
 ### 5. Update certificates
 ```
-docker exec haproxy-certbot haproxy-refresh
+docker exec haproxy-certbot certbot-renew && haproxy-refresh
 ```
 
 ### 6. Check your browser
