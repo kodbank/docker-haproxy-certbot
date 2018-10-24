@@ -6,7 +6,7 @@ For detailed info see origin repo.
 * Moved to Alpine Linux
 * Supervisord logging
 * Updated CertBot to >=0.22
-* Updated HAProxy to 1.8.8
+* Updated HAProxy to 1.8.14
 * Added check script ```(docker exec -it container_name haproxy-check -) < path_to_your_config```
 
 ## Usage
