@@ -1,8 +1,8 @@
-FROM alpine:3.7
+FROM alpine:3.5
 
-ENV HAPROXY_MAJOR 1.8
-ENV HAPROXY_VERSION 1.8.8
-ENV HAPROXY_MD5 8633b6e661169d2fc6a44d82a3aceae5
+ENV HAPROXY_MAJOR 1.7
+ENV HAPROXY_VERSION 1.7.9
+ENV HAPROXY_MD5 a2bbbdd45ffe18d99cdcf26aa992f92d
 
 RUN set -x \
   \
@@ -47,15 +47,13 @@ RUN set -x \
   && apk del .build-deps
 
 # Install certbot, supervisor, cron, libnl-utils, net-tools, iptables
-# "certbot>=0.22" - minimum version of certbot with ACME v2 support
-RUN echo http://nl.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories
 RUN apk add --no-cache --update \
     supervisor \
     dcron \
     libnl3-cli \
     net-tools \
     iproute2 \
-    "certbot>=0.22" \
+    certbot \
     openssl \
   && rm -rf /var/cache/apk/*
 
